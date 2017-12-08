@@ -12,13 +12,14 @@ spec:
       run: my-pod
   template:
     metadata:
+      # unlike my-pod.yaml, the name is not included in the meta data as a unique name is
+      # generated from the deployment name
       labels:
         run: my-pod
     spec:
       restartPolicy: Always
       containers:
-      - image: nginx
-        imagePullPolicy: Always
+      - image: nginx:1.7.9
         name: my-pod
         ports:
         - containerPort: 80
