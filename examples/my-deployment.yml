@@ -1,0 +1,24 @@
+# Example deployment
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: my-pod
+  name: my-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: my-pod
+  template:
+    metadata:
+      labels:
+        run: my-pod
+    spec:
+      restartPolicy: Always
+      containers:
+      - image: nginx
+        imagePullPolicy: Always
+        name: my-pod
+        ports:
+        - containerPort: 80
