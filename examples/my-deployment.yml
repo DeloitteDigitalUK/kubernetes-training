@@ -1,25 +1,22 @@
-# Example deployment
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: my-pod
-  name: my-pod
+    app: my-app
+  name: my-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: my-pod
+      app: my-app
   template:
     metadata:
-      # unlike my-pod.yaml, the name is not included in the meta data as a unique name is
-      # generated from the deployment name
       labels:
-        run: my-pod
+        app: my-app
     spec:
       restartPolicy: Always
       containers:
       - image: nginx:1.7.9
-        name: my-pod
+        name: my-app
         ports:
         - containerPort: 80

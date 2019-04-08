@@ -1,13 +1,12 @@
-# Example my-pod.yml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-pod
+  name: my-app
   labels:
-    name: my-pod
+    name: my-app
 spec:
   containers:
-  - name: my-pod
-    image: nginx
+  - name: my-app
+    image: nginx:1.7.9
     ports:
     - containerPort: 80

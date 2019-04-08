@@ -1,0 +1,6 @@
+# File-based project format
+*.iml
+
+# IntelliJ
+out/
+.idea/
