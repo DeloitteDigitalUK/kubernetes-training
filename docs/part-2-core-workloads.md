@@ -17,7 +17,7 @@ metadata:
 spec:
   containers:
   - name: my-app
-    image: nginx
+    image: nginx:1.7.9
     ports:
     - containerPort: 80
 ```
@@ -46,7 +46,7 @@ Let’s add a service definition for your pod:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: my-app
 spec:
   ports:
   - port: 8080
@@ -84,9 +84,9 @@ Let's replace our Pod with a Deployment:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: my-app
   labels:
     app: my-app
-  name: my-app
 spec:
   replicas: 1
   selector:
