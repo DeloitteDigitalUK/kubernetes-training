@@ -15,8 +15,8 @@ We’re going to use Homebrew to install the following packages:
 
 Follow the instructions for _either_ Docker Desktop or Minikiube:
 
-- [docker-desktop-setup.md]
-- [minikube-setup.md]
+- [Docker Desktop setup](docker-desktop-setup.md)
+- [Minikube setup](minikube-setup.md)
 
 Whilst we wait for brew to do its thing, let’s spend a little bit of time understanding what Kubernetes _is_ and what it’s _for_.
 
