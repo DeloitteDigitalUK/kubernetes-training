@@ -8,7 +8,7 @@ You may have noticed that Helm is operated using a CLI, in an _imperative_ style
 
 Modern deployment approaches, like GitOps, rely upon being able to work from infrastructure configuration as code. If we want Helm’s benefits, like templating, reusability, encapsulation and deployment history but also declarative configuration, what do we do?
 
-Luckily the community comes to our rescue. Here are two projects that provide a way to achieve this:
+Luckily the community comes to our rescue. Here are some projects that provide a way to achieve this:
 
 - **Helmfile**: YAML formatted; supports templating and external values files, as well as the concept of different ‘environments’
 - **Helmsman**: TOML formatted - like INI files
@@ -45,6 +45,12 @@ releases:
 
 This file defines two different releases. Each uses the ‘stable/jenkins’ chart, but here teams might need different versions. In addition, any team-specific settings are separated into their own values files.
 
+### Installation
+
+Install Helmfile with brew:
+
+    brew install helmfile
+
 Under the covers, Helmfile delegates to Helm. When we use the Helmfile CLI to perform an action it orchestrates the required commands to install or upgrade our application without us having to provide a long string of arguments to a terminal command.
 
 Great! We can now control Helm with this configuration file, without having to make sure we pass the same chart versions, values etc. manually whenever we release. This avoids the risk of manual error, and improves the predictability of our deployment process. This is an improvement, but we’re still not quite where we want to be.
@@ -61,11 +67,11 @@ To do this, Helmfile needs to be able to perform a diff between the current stat
 
 Helmfile delegates to the `helm` command under the covers. This means that its diff functionality makes use of the `helm-diff` plugin.
 
-# steps to install helm diff plugin
+    helm plugin install https://github.com/databus23/helm-diff --version "v2.11.0+2"
 
 Now we’re ready to go. Let’s test it:
 
-helmfile apply
+    helmfile apply
 
 #### What does this do?
 
