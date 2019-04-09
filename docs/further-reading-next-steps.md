@@ -16,4 +16,4 @@
 - [Cloud Native DevOps with Kubernetes](https://www.amazon.co.uk/Cloud-Native-DevOps-Kubernetes-Applications-ebook-dp-B07PJ4HM92/dp/B07PJ4HM92)
 
 # Other resources
-- [Helm Hub](https://hub.helm.sh/) - lots of Helm applications
+- [Helm Hub](https://hub.helm.sh/) - a public repository for official and community Helm charts
