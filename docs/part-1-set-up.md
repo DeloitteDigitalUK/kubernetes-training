@@ -12,7 +12,11 @@ Before we get started, let’s get you set up.
 We’re going to use Homebrew to install the following packages:
 
 	brew install kubectl kubernetes-helm
-	brew cask install minikube
+
+Follow the instructions for _either_ Docker Desktop or Minikiube:
+
+- [docker-desktop-setup.md]
+- [minikube-setup.md]
 
 Whilst we wait for brew to do its thing, let’s spend a little bit of time understanding what Kubernetes _is_ and what it’s _for_.
 
@@ -42,15 +46,11 @@ Now we know what Kubernetes is for, let’s look at what it is.
 
 By now, your installation should be complete. Let’s bring up your cluster.
 
-## Bringing up a (local) cluster
+## Your own personal cluster
 
-Now you have the tools installed, we’re going to bring up a Kubernetes cluster, running on your local machine.
+You now have a Kubernetes cluster, running on your local machine.
 
-	minikube start --kubernetes-version 1.12.7
-
-### What did we just do?
-
-You used minikube, which is a way of starting a single-node development cluster of Kubernetes, right on your machine. Under the covers, it creates a Virtual Machine, running a lightweight distribution of Linux, and uses the kubeadm tool to bootstrap the components such as the API server, proxy and kubelet.
+Under the covers, it creates a Virtual Machine, running a lightweight distribution of Linux, and uses the kubeadm tool to bootstrap the components such as the API server, proxy and kubelet.
 
 ## Exploring your cluster
 

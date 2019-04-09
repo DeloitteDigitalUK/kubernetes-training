@@ -10,8 +10,9 @@ Modern deployment approaches, like GitOps, rely upon being able to work from inf
 
 Luckily the community comes to our rescue. Here are two projects that provide a way to achieve this:
 
-- **Helmfile**: YAML formatted, supports templating and external values files, as well as the concept of different ‘environments’
-- **Helmsman**: TOML formatted file(s) - like INI files
+- **Helmfile**: YAML formatted; supports templating and external values files, as well as the concept of different ‘environments’
+- **Helmsman**: TOML formatted - like INI files
+- **Terraform**: HCL formatted; commonly used infrastructure management tool
 
 Each centers around the idea of using a configuration file in your source control system containing your desired state. This includes:
 
