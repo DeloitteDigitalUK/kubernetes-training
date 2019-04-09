@@ -12,15 +12,19 @@ Docker Desktop ships with a local Kubernetes installation.
 
 Open the Preferences pane of Docker Desktop:
 
-![img/dd_k8s_setup1.png]
+![Docker Desktop Kubernetes setup step 1](img/dd_k8s_setup1.png)
 
-![img/dd_k8s_setup2.png]
+On the Kubernetes tab, enable Kubernetes.
 
-![img/dd_k8s_setup3.png]
+![Docker Desktop Kubernetes setup step 2](img/dd_k8s_setup2.png)
+
+Choose _Install_ from the dialog box.
+
+![Docker Desktop Kubernetes setup step 3](img/dd_k8s_setup3.png)
 
 It will take some time for brew to do its thing.
 
-Once your installation is complete, let’s bring up your cluster.
+Once your installation is complete, your cluster will be started automatically.
 
 ## Exploring your cluster
 
