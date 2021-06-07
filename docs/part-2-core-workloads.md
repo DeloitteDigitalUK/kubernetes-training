@@ -24,20 +24,26 @@ spec:
 
 Now let’s create the pod object in Kubernetes:
 
-	kubectl apply -f my-pod.yaml
+    kubectl apply -f my-pod.yaml
 
 Let’s check the status of your pod:
 
-	kubectl get pods
+    kubectl get pods
 
 If you want more information, you can use:
 
-	kubectl describe pod my-pod
+    kubectl describe pod my-app
 
 This gives you a human-readable description of the object.
 
-Show how to view logs.
-Connecting to your pod
+### How to view logs
+
+View logs for a pod using the `kubectl logs` command:
+
+    kubectl logs my-app
+
+## Network access to your pod
+
 Now, by itself, this pod is not very exciting. Whilst it’s running, it’s not accessible to the outside world. What we need is to expose the internal port on which it listens for traffic via a Service.
 
 Let’s add a service definition for your pod:
@@ -48,29 +54,35 @@ kind: Service
 metadata:
   name: my-app
 spec:
+  type: LoadBalancer
   ports:
   - port: 8080
     targetPort: 80
     protocol: TCP
   selector:
-    app: my-pod
+    app: my-app
 ```
 
 Notice how the service is bound to your pod using its metadata. This provides you with loose coupling between your objects.
 
 Add the service:
 
-	kubectl apply -f my-service.yaml
+    kubectl apply -f my-service.yaml
 
 Let’s check the status of the service:
 
-	kubectl get services
+```
+$ kubectl get services -owide
 
-When your service is active, you should be able to access it on the host port you specified, using the IP address of minikube:
+NAME     TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+my-app   LoadBalancer   10.96.0.8    localhost     8080/TCP  1h
+```
 
-	minikube ip
+> Notice the `EXTERNAL-IP` column.
 
-You can see your service in your web browser at http://<minikube IP>:<service port>
+When your service is active, you should be able to access it on the 'external IP' and port you specified.
+
+You can see your service in your web browser at `http://<external IP>:<service port>`
 
 ## Fault tolerance
 
@@ -132,7 +144,7 @@ In the real world, we will typically run more than one instance of an applicatio
 
 Let's scale up our Deployment:
 
-    vi my-deployment.yaml
+    $ vi my-deployment.yaml
     <edit replicas to a higher number>
     
     kubectl apply -f my-deployment.yaml
@@ -141,9 +153,9 @@ Just as before, the deployment controller notices the change in desired state, a
 
 Let's take a look:
 
-    kubectl get pod
+    kubectl get pods
 
-As you can see, we now have more than one 
+As you can see, we now have more than one.
 
 ### Load balancing
 
@@ -152,5 +164,7 @@ Using a Service with multiple Pods will result in the load being spread across a
 ### Rolling deployments
 
 By default, Kubernetes performs rolling updates whenever a change is required to an application managed by the Deployment controller. This has a number of advantages including eliminating downtime and phasing the introduction of new versions of your application. The rolling update strategy can be customised to meet a number of different scenarios.
+
+The `strategy` section within the Deployment object `spec` controls this behaviour.
 
 > See the [official documentation](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/) for a full explanation.

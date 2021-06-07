@@ -5,6 +5,7 @@ metadata:
   labels:
     app: my-app
 spec:
+  type: LoadBalancer
   ports:
   - port: 8080 # the port that this service should serve on
 

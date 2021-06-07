@@ -1,28 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "my-awesome-app.fullname" . }}
+  name: {{ include "my-app.fullname" . }}
   labels:
-    app.kubernetes.io/name: {{ include "my-awesome-app.name" . }}
-    helm.sh/chart: {{ include "my-awesome-app.chart" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    {{- include "my-app.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "my-awesome-app.name" . }}
-      app.kubernetes.io/instance: {{ .Release.Name }}
+      {{- include "my-app.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        team: {{ .Values.teamName }}
-        app.kubernetes.io/name: {{ include "my-awesome-app.name" . }}
-        app.kubernetes.io/instance: {{ .Release.Name }}
+        {{- include "my-app.selectorLabels" . | nindent 8 }}
     spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
