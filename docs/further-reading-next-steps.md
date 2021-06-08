@@ -2,15 +2,19 @@
 
 ## What to do next
 
-- Deploy onto a cloud hosted Kubernetes service.
-- Secure your cluster.
-- Partition your cluster for different workloads.
+- Secure your cluster
+- Learn about volumes
+- Learn about stateful apps
+- Learn about data planes
+- Deploy onto a cloud hosted Kubernetes service
+- Partition your cluster for different workloads
 
 ## Examples and documentation
 
-- [Kubernetes 201](https://kubernetes.io/docs/user-guide/walkthrough/k8s201/) 
-- [Kubernetes official examples](https://github.com/kubernetes/kubernetes/tree/master/examples) 
-- [Kubernetes documentation](https://kubernetes.io/docs/home/)
+- [Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/) 
+- [Kubernetes Playground](https://www.katacoda.com/courses/kubernetes/playground) 
+- [Kubernetes Glossary](https://kubernetes.io/docs/reference/glossary/?all=true)
+- [Kubernetes official documentation](https://kubernetes.io/docs/home/)
 - [AWS EKS workshop](https://eksworkshop.com/)
 
 ## Books
@@ -20,4 +24,4 @@
 
 # Other resources
 
-- [Helm Hub](https://hub.helm.sh/) - a public repository for official and community Helm charts
+- [Artifact Hub](https://artifacthub.io/) - a public repository for official and community Helm charts

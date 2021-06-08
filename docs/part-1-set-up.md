@@ -31,12 +31,16 @@ To understand this, it’s necessary to think about how we run operational syste
 
 So, Kubernetes is a platform for deploying and running things reliably, repeatably and predictably. It also allows your team to move more quickly because it standardises many parts of the release and deployment process, meaning you have less variation and fewer things to learn.
 
+![Kubernetes logo](img/k8s_logo.png)
+
+> Kubernetes is an open-source container management platform for automating deployment, scaling and management of containerised applications.
+
 ### How does it do this?
 
 Now we know what Kubernetes is for, let’s look at what it is.
 
 > Explanation, covering:
-> - Masters and workers
+> - Control plane and workers
 > - A set of coordinated, but independent components
 > - Controllers
 > - API server
