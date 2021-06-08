@@ -2,4 +2,4 @@
 
 Example Helm charts.
 
-- _my-awesome-app_ - simple chart containing a Deployment and a Service
+- _my-app_ - chart containing a Deployment and a Service

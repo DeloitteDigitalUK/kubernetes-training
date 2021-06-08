@@ -10,6 +10,7 @@ Step by step lessons starting with your first Kubernetes objects, up to and incl
 - [Part 4: Declarative deployments](part-4-declarative-deployments.md)
 - _Part 5: CI/CD_ - TODO
 - _Part 6: Cloud Native Development_ - TODO
+- [Part Z: Tidy up](part-z-tidy-up.md)
 
 ## Further reading and next steps
 

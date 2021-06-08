@@ -3,6 +3,7 @@
 In the previous part we stood up a local Kubernetes cluster.
 
 ## Deploying your first pod
+
 Let’s deploy an application into the cluster. To do this, we are going to create a pod, based on a Docker image.
 
 Create a YAML file for your pod:
@@ -13,7 +14,7 @@ kind: Pod
 metadata:
   name: my-app
   labels:
-    name: my-app
+    app: my-app
 spec:
   containers:
   - name: my-app
@@ -53,6 +54,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: my-app
+  labels:
+    app: my-app
 spec:
   type: LoadBalancer
   ports:

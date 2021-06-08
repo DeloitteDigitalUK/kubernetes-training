@@ -19,7 +19,7 @@ We’re going to use Helm to deploy an application using a ‘chart’.
 
 You can install Helm using brew:
 
-    brew install helm
+    brew install kubernetes-helm
 
 This will install the `helm` CLI tool.
 

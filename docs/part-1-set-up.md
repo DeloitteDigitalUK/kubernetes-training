@@ -11,7 +11,7 @@ Before we get started, let’s get you set up.
 
 We’re going to use Homebrew to install the following packages:
 
-	brew install kubectl kubernetes-helm
+	brew install kubernetes-helm
 
 Follow the instructions for _either_ Docker Desktop or Minikiube:
 
@@ -44,9 +44,13 @@ Now we know what Kubernetes is for, let’s look at what it is.
 > - kubelet
 > - Use of containers (workloads as well as system)
 
-By now, your installation should be complete. Let’s bring up your cluster.
+![Components of Kubernetes](img/components-of-kubernetes.svg)
+
+> Source: https://kubernetes.io/docs/concepts/overview/components/
 
 ## Your own personal cluster
+
+By now, your installation should be complete. Let’s bring up your cluster.
 
 You now have a Kubernetes cluster, running on your local machine.
 
