@@ -24,9 +24,14 @@ Let's download the Istio bits:
 
 This fetches the latest stable version.
 
+Add the Istio CLI to your path:
+
+    export PATH=$PATH:$PWD/istio-1.10.1/bin
+
+> Note: replace `1.10.1` with the version of Istio you downloaded.
+
 Let's install it with the demo profile:
 
-	cd istio-1.9.5
 	istioctl install --set profile=demo -y
 
 Check it's up and running:
@@ -58,7 +63,10 @@ We will use the 'Book Info' demo application to illustrate Istio.
 
 Let's install it:
 
-    kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/bookinfo/networking/bookinfo-gateway.yaml
+```
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/bookinfo/networking/bookinfo-gateway.yaml
+```
 
 ### Let's test it
 
@@ -73,4 +81,3 @@ You should see the following page:
 ### Exploring Istio
 
 Let's explore the Istio configuration.
-

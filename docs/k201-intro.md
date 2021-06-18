@@ -4,6 +4,7 @@
 
 - Mac running macOS Sierra or later
 - A text editor (an IDE is also fine)
+- Homebrew
 - Docker for Mac 17.06 or later
 
 ## Additional objects 

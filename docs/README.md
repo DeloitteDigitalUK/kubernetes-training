@@ -9,7 +9,7 @@ Step by step lessons starting with your first Kubernetes objects, up to and incl
 	- [Minikube setup](./minikube-setup.md)
 - [Part 2: Core workloads](./part-2-core-workloads.md)
 - [Part 3: Managed deployments](./part-3-managed-deployments.md)
-- [Part Z: Tidy up](./part-z-tidy-up.md)
+- [Part Z: Tidy up](./tidy-up.md)
 
 ### Further reading and next steps
 
@@ -24,4 +24,5 @@ Step by step lessons starting with your first Kubernetes objects, up to and incl
 - [Part 4: Operational considerations](./operations.md)
 - [Part 5: Cluster architecture](./architecture.md)
 - [Part 6: The data plane](./data-plane.md)
-- [Part 6: Introduction to Knative](./knative.md)
+- [Part 7: Introduction to Knative](./knative.md)
+- [Part Z: Tidy up](./tidy-up.md)

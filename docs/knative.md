@@ -4,14 +4,14 @@
 
 > Source: https://github.com/knative/docs/
 
-Install core:
+Install Knative core:
 
 ```
 kubectl apply -f https://github.com/knative/serving/releases/download/v0.22.0/serving-crds.yaml
 kubectl apply -f https://github.com/knative/serving/releases/download/v0.22.0/serving-core.yaml
 ```
 
-Add Istio network plugin:
+Add Istio network support for Knative:
 
 ```
 kubectl apply -f https://github.com/knative/net-istio/releases/download/v0.22.0/net-istio.yaml
