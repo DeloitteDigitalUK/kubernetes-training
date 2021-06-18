@@ -5,7 +5,7 @@ metadata:
 spec:
   template:
     spec:
-      containerConcurrency: 25
+      containerConcurrency: 20
       containers:
       - image: nginx:1.7.9
         name: my-app

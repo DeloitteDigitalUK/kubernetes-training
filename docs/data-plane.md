@@ -50,7 +50,7 @@ NAME                   TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)   A
 istio-ingressgateway   LoadBalancer   172.21.109.129   localhost     ...       17h
 ```
 
-> Note the `EXTERNAL-IP` ports, e.g. `localhost` and `80:someport/TCP`.
+> Note the `EXTERNAL-IP` and ports, e.g. `localhost` and `80:someport/TCP`.
 
 ## The bookinfo application
 
@@ -58,7 +58,7 @@ We will use the 'Book Info' demo application to illustrate Istio.
 
 Let's install it:
 
-    kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+    kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/bookinfo/networking/bookinfo-gateway.yaml
 
 ### Let's test it
 
