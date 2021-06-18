@@ -1,11 +1,6 @@
-# Kubernetes 101 Training
+# Kubernetes Training
 
-Materials for Kubernetes 101 training course.
-
-### Details
-
-* *Title:* Platform Engineer practitioner training – Kubernetes 101
-* *Delivered by:* Pete Cornish
+Materials for Kubernetes 101 and 201 training courses.
 
 See the [documentation](docs) or the [examples](examples).
 
