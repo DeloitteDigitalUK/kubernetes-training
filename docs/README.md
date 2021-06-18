@@ -19,7 +19,7 @@ Step by step lessons starting with your first Kubernetes objects, up to and incl
 
 ## Kubernetes 201
 
-- Introduction
+- [Introduction](./k201-intro.md)
 - Recap of 101 topics
 - [Part 4: Operational considerations](./operations.md)
 - [Part 5: Cluster architecture](./architecture.md)

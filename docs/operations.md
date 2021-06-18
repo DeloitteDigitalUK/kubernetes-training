@@ -10,20 +10,11 @@
 	- HA architecture
 	- Persistent workloads
 
+## Observability
 
-## Additional objects 
+See [CNCF trailmap](https://raw.githubusercontent.com/cncf/trailmap/master/CNCF_TrailMap_latest.png)
 
-We will also meet:
-
-- DaemonSet
-- StatefulSet
-
-## Pod sandbox
-
-- What is shared?
-- What is per container?
-
-## Logging
+### Logging
 
 Challenges:
 
@@ -36,3 +27,11 @@ Strategies:
 - Sidecar per pod
 - DaemonSet per node
 - Embedded within application
+
+### Monitoring
+
+- Prometheus
+- APM
+
+### 
+

@@ -33,3 +33,44 @@ Check it's up and running:
 
 	kubectl -n istio-system get deploy
 	kubectl -n istio-system get IstioOperator installed-state -o yaml
+
+### Enabling sidecar injection
+
+We want Istio to automatically add the necessary sidecars to our Pods. We do this by labelling the namespace that will host the application with `istio-injection=enabled`
+
+    kubectl label namespace default istio-injection=enabled
+
+### Accessing the gateway
+
+Let's find the address of the Istio Ingress Gateway.
+
+```
+$ kubectl get svc istio-ingressgateway -n istio-system
+NAME                   TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
+istio-ingressgateway   LoadBalancer   172.21.109.129   localhost     ...       17h
+```
+
+> Note the `EXTERNAL-IP` ports, e.g. `localhost` and `80:someport/TCP`.
+
+## The bookinfo application
+
+We will use the 'Book Info' demo application to illustrate Istio.
+
+Let's install it:
+
+    kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+
+### Let's test it
+
+Open this in your browser: http://localhost/productpage
+
+> Note, replace `localhost` with the external IP and port of the gateway in the previous section.
+
+You should see the following page:
+
+![Bookinfo application](img/bookinfo-product.png)
+
+### Exploring Istio
+
+Let's explore the Istio configuration.
+

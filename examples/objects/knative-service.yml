@@ -1,0 +1,13 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: my-app
+spec:
+  template:
+    spec:
+      containerConcurrency: 25
+      containers:
+      - image: nginx:1.7.9
+        name: my-app
+        ports:
+          - containerPort: 80
