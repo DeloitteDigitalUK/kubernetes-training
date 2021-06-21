@@ -44,7 +44,9 @@ Uninstall Knative:
 
 Delete the Bookinfo application:
 
+    kubectl delete virtualservice reviews
     kubectl delete -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/bookinfo/networking/bookinfo-gateway.yaml
+    kubectl delete -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/bookinfo/networking/destination-rule-all.yaml
     kubectl delete -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/bookinfo/platform/kube/bookinfo.yaml
 
 Uninstall Istio:

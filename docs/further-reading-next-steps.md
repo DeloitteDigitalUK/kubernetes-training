@@ -16,6 +16,7 @@
 - [Kubernetes Glossary](https://kubernetes.io/docs/reference/glossary/?all=true)
 - [Kubernetes official documentation](https://kubernetes.io/docs/home/)
 - [AWS EKS workshop](https://eksworkshop.com/)
+- [Istio Traffic Management](https://istio.io/latest/docs/concepts/traffic-management/)
 
 ## Books
 

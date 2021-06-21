@@ -19,7 +19,6 @@
 
 Let's download the Istio bits:
 
-	mkdir istio && cd istio
 	curl -L https://istio.io/downloadIstio | sh -
 
 This fetches the latest stable version.
@@ -65,6 +64,7 @@ Let's install it:
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/bookinfo/networking/destination-rule-all.yaml
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/bookinfo/networking/bookinfo-gateway.yaml
 ```
 
@@ -81,3 +81,90 @@ You should see the following page:
 ### Exploring Istio
 
 Let's explore the Istio configuration.
+
+    kubectl get pods,virtualservices,destinationrules,gateway
+
+Some points to note:
+
+* The gateway enables network traffic ingress to our services
+* Virtual Services abstract our workloads from services
+* Destination rules define the versions ('subsets') of our services
+
+### Canary deployment
+
+We're now going to perform a canary deployment of version 2 of our reviews service.
+
+The version of the workload is determined by the labels on the pods.
+
+Let's check the labels for our running reviews pods:
+
+```
+$ kubectl get pod -l app=reviews -L version
+
+NAME                    READY   STATUS    RESTARTS   AGE   VERSION
+reviews-v1-545db77b95   2/2     Running   0          2m    v1
+reviews-v2-7bf8c9648f   2/2     Running   0          2m    v2
+reviews-v3-84779c7bbc   2/2     Running   0          2m    v3
+
+```
+
+Now, let's define a VirtualService for reviews:
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+  - reviews
+  http:
+  - route:
+    - destination:
+        host: reviews
+        subset: v1
+      weight: 75
+
+    - destination:
+        host: reviews
+        subset: v2
+      weight: 25
+```
+
+> Versions are referred to as 'subsets'.
+
+Here we are routing 25% of traffic to v2 of the reviews workload.
+
+If we hit the bookinfo application now, roughly 1 in every 4 requests hits the new version of reviews.
+
+### Header matched traffic
+
+Let's say we want to limit access to the new version to those users with a particular header set.
+
+Change our VirtualService to add a 'match' condition instead of the 'weight':
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+  - reviews
+  http:
+  - route:
+    - destination:
+        host: reviews
+        subset: v1
+
+  - match:
+    - headers:
+        user-agent:
+          exact: "tester"
+    route:
+    - destination:
+        host: reviews
+        subset: v2
+```
+
+Here, if the User Agent string matches the value `tester` then Istio routes traffic to version 2 of reviews, otherwise version 1 is used.
