@@ -1,7 +1,17 @@
-# Kubernetes 101 - Example objects
+# Example objects
 
-Example Kubernetes objects for:
+## Kubernetes 101
+
+Examples for:
 
 - Pod
 - Service
 - Deployment
+
+## Kubernetes 201
+
+Examples for:
+
+- Istio VirtualService (Canary deployment pattern)
+- Istio VirtualService (Dark release pattern)
+- Knative Service
