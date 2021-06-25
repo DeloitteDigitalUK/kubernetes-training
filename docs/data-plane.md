@@ -4,6 +4,17 @@
 
 > Source: https://istio.io/latest/docs/ops/deployment/architecture/
 
+## What problem does this solve?
+
+Complex, dynamic environments can be difficult to manage, secure and make resilient. There are common strategies to deal with these challenges (mTLS, automatic certificate rotation, rate limiting, traffic routing, circuit-breakers, service discovery, advanced load balancing), but implementing these in your applications is a non-trivial task at scale, and support varies by application platform.
+
+A data plane, like Istio, deals with this complexity outside of your applications:
+
+- Reduces workload complexity (no need for libraries like Hysterix)
+- Implement patterns once, regardless of workload technology (e.g. doesn't matter if polyglot environment JVM/Node.js/Golang)
+- Improves consistency of implementation
+- Lots of ecosystem tools built on top of a well-defined 'data plane' layer
+
 ## Installing Istio
 
 ### Prerequisites
@@ -138,9 +149,9 @@ Here we are routing 25% of traffic to v2 of the reviews workload.
 
 If we hit the bookinfo application now, roughly 1 in every 4 requests hits the new version of reviews.
 
-### Dark releases
+### Dark launches
 
-Let's say we want to limit access to the new version to a specific set of users, such as internal users or those that meet certain other criteria. This is sometimes called the 'dark release' pattern, where new functionality is live but only to a particular user group. Contrast this with the Canary approach, which tends to select an arbitrary subset of users.
+Let's say we want to limit access to the new version to a specific set of users, such as internal users or those that meet certain other criteria. This is sometimes called the 'dark launch' pattern, where new functionality is live but only to a particular subset of users.
 
 In this example we will constrain visibility of the new version to those users with a particular header (`User-Agent`) set, but you can imagine using a cookie or some other attribute to control routing.
 
