@@ -138,9 +138,11 @@ Here we are routing 25% of traffic to v2 of the reviews workload.
 
 If we hit the bookinfo application now, roughly 1 in every 4 requests hits the new version of reviews.
 
-### Header matched traffic
+### Dark releases
 
-Let's say we want to limit access to the new version to those users with a particular header set.
+Let's say we want to limit access to the new version to a specific set of users, such as internal users or those that meet certain other criteria. This is sometimes called the 'dark release' pattern, where new functionality is live but only to a particular user group. Contrast this with the Canary approach, which tends to select an arbitrary subset of users.
+
+In this example we will constrain visibility of the new version to those users with a particular header (`User-Agent`) set, but you can imagine using a cookie or some other attribute to control routing.
 
 Change our VirtualService to add a 'match' condition instead of the 'weight':
 
