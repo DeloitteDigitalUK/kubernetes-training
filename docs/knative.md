@@ -4,7 +4,19 @@
 
 > Source: https://github.com/knative/docs/
 
-Install Knative core:
+## What problem does this solve?
+
+- Scale-to-zero
+- Request throughput based scaling (vs. CPU/memory)
+- Serverless experience for workloads
+- Eventing for pub-sub workloads
+- Like Kubernetes itself, open source, cloud neutral and vendor neutral
+
+## Installing Knative
+
+We are going to use Knative Serving - one of the Knative projects.
+
+First, install the core Knative elements:
 
 ```
 kubectl apply -f https://github.com/knative/serving/releases/download/v0.22.0/serving-crds.yaml
