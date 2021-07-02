@@ -23,6 +23,6 @@ Step by step lessons starting with your first Kubernetes objects, up to and incl
 - Recap of 101 topics
 - [Part 4: Operational considerations](./operations.md)
 - [Part 5: Cluster architecture](./architecture.md)
-- [Part 6: The data plane](./data-plane.md)
-- [Part 7: Introduction to Knative](./knative.md)
+- [Part 6: The data plane - Istio](./data-plane.md)
+- [Part 7: Serverless Kubernetes - Knative](./knative.md)
 - [Part Z: Tidy up](./tidy-up.md)

@@ -1,4 +1,4 @@
-# Knative
+# Serverless Kubernetes - Knative
 
 ![Knative architecture](img/knative-arch.jpeg)
 
